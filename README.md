@@ -40,8 +40,8 @@ Dự án đáp ứng đầy đủ các yêu cầu của bài tập: thêm, hiể
 ### 1. Clone dự án
 
 ```bash
-git clone <link-repo-cua-ban>
-cd quanlysinhvien
+git clone https://github.com/syth09/QUAN_LY_SINH_VIEN-Laravel_beginner
+cd student_app
 ```
 
 ### 2. Cài đặt dependencies
