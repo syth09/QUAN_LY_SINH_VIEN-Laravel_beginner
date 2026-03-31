@@ -1,66 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Quản Lý Sinh Viên - Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Giới thiệu
 
-## About Laravel
+Đây là dự án **Quản lý Sinh viên** được xây dựng bằng **Laravel Framework**, thực hiện theo mô hình **MVC** (Model - View - Controller).  
+Dự án đáp ứng đầy đủ các yêu cầu của bài tập: thêm, hiển thị, tìm kiếm, sắp xếp, phân trang và quản lý thông tin sinh viên.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Yêu cầu chức năng
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Thêm sinh viên (Tên, Ngành học, Email)
+- Hiển thị danh sách sinh viên
+- Tìm kiếm sinh viên theo tên
+- Sắp xếp sinh viên theo tên (A → Z và Z → A)
+- Phân trang (Pagination)
+- Validation dữ liệu (Email không được trùng)
+- Xóa sinh viên
+- Xem và chỉnh sửa thông tin sinh viên
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Công nghệ sử dụng
 
-## Learning Laravel
+- **Laravel** (phiên bản mới nhất)
+- **PHP** 8.2+
+- **MySQL** (Database)
+- **Blade Template Engine**
+- **Bootstrap 5** (Giao diện)
+- **Eloquent ORM**
+- **Laravel Form Request** (Validation tách lớp)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Cấu trúc dự án (MVC + Tách lớp)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Route** → `routes/web.php`
+- **Controller** → `app/Http/Controllers/StudentController.php` (Controller mỏng)
+- **Model** → `app/Models/Student.php`
+- **Validation** → `app/Http/Requests/StoreStudentRequest.php` & `UpdateStudentRequest.php`
+- **Views** → `resources/views/students/`
+- **Migration** → `database/migrations/..._create_students_table.php`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Hướng dẫn cài đặt và chạy
 
-## Laravel Sponsors
+### 1. Clone dự án
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+git clone <link-repo-cua-ban>
+cd quanlysinhvien
+```
 
-### Premium Partners
+### 2. Cài đặt dependencies
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+composer install
+```
 
-## Contributing
+### 3. Copy file môi trường
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cp .env.example .env
+```
 
-## Code of Conduct
+### 4. Cấu hình Database
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=student_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Security Vulnerabilities
+### 5. Tạo Database trên
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Tạo database tên student_db trong MySQL.
 
-## License
+### 6. Chạy Migration
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan migrate
+```
+
+### 7. Chạy dự án
+
+```bash
+php artisan serve
+```
