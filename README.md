@@ -82,3 +82,28 @@ php artisan migrate
 ```bash
 php artisan serve
 ```
+
+## Các chức năng chính
+
+- Thêm sinh viên (Có validation, email unique bắt trường hợp trùng lặp)
+- Hiển thị danh sách (Phân trang)
+- Tìm kiếm theo tên (Giữ query string)
+- Sắp xếp theo tên (A -> Z / Z -> A)
+- Cập nhật sinh viên (Form edit)
+- Xóa sinh viên (Có xác nhận)
+- Validation dữ liệu (Sử dụng Form Request)
+
+## Yêu cầu quan trọng đã đáp ứng
+
+- Không viết HTML trong Controller
+- Bắt buộc sử dụng @csrf trong mọi form
+- Validation được tách riêng bằng Form Request
+- Code rõ ràng, dễ bảo trì, tuân thủ nguyên tắc MVC
+- Giao diện sử dụng Bootstrap 5, tiêu đề có background đẹp
+
+## Thông tin sinh viên
+
+- Họ và tên: Tạ Tuấn Phong
+- MSSV: 20220849
+- Lớp: DCCNTT 13.10.5
+- Môn học: PHP & Laravel - Bài 1: Quản lý Sinh viên
